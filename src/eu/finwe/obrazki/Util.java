@@ -431,7 +431,8 @@ public class Util {
                 return new FiltrSkalujacy(parametry);
                          
             default:
-                throw new IllegalArgumentException("Ten typ filtra nie jest dostępny");
+                //throw new IllegalArgumentException("Ten typ filtra nie jest dostępny");
+                return new FiltrNicNieRobiacy();
                     
         }
     }
@@ -674,7 +675,24 @@ public class Util {
         
     }
     
-    
+    static private class FiltrNicNieRobiacy extends Filtr{
+
+        @Override
+        public BufferedImage filter(BufferedImage src, BufferedImage dest) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Rectangle2D getBounds2D(BufferedImage src) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Point2D getPoint2D(Point2D srcPt, Point2D dstPt) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+        
+    }
     /* Testowanie wybranych metod;
      * klas zawierających metodę main() może być w projekcie dużo.
      * Trzeba tylko pamiętać o określeniu tej "startowej"
